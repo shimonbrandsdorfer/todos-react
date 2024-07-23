@@ -20,7 +20,9 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
-app.use(cookieParser("a-very-very-strong-and-super-secret-secret"))
+app.use(cookieParser("a-very-very-strong-and-super-secret-secret"));
+
+app.use('/images', express.static('uploads'));
 
 app.use("/", rootRoute);
 app.use("/tasks", tasksRoute);

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "formik": "^2.4.6",
+    "multer": "^1.4.5-lts.1",
+    "yup": "^1.4.0"
+  }
+}

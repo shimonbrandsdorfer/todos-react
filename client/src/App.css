@@ -59,6 +59,47 @@
   width: 100%;
 }
 
+.login-form__username.invalid input,
+.login-form__password.invalid input{
+  border: red 2px solid;
+}
+
+.login-form p.err-msg {
+  color: red;
+}
+
+.login-form button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.upload-section {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: black  2px dashed;
+  background-color: gray;
+}
+
+.upload-section.is-dragging {
+  border-color: green;
+  background-color: aquamarine;
+}
+
+.upload-section p{
+  width: 200px;
+}
+
+.upload-section input{
+  margin: 20px 0;
+}
+
+.upload-section img.preview {
+  max-width: 100%;
+  max-height: 400px;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #f0f0f0;

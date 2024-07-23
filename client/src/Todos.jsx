@@ -52,7 +52,7 @@ export default function Todos({ userId }) {
           {tasks
             .filter((task) => task.done)
             .map((task) => (
-              <Task task={task} key={task.id} />
+              <Task done={task.done} title={task.title} key={task.id} />
             ))}
         </section>
       </div>

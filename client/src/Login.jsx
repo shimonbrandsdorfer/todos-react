@@ -15,32 +15,13 @@ function Login({ setCurrentUser }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: event.target.elements.username.value,
-        password: event.target.elements.password.value,
+        username: usernameElem.current.value,
+        password: passwordElem.current.value
       }),
     });
     const result = await res.json();
     setCurrentUser(result.user_id);
     navigate("/todos", { state: { userId: result.user_id } });
-  }
-
-  async function handleSignUp(event) {
-    event.preventDefault();
-    const username = usernameElem.current.value;
-    const password = passwordElem.current.value;
-
-    const res = await fetch("http://localhost:3000/users/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: username,
-        password: password,
-      }),
-    });
-    const result = await res.json();
-    // navigate("/todos", {state: { userId: result.user_id}})
   }
 
   return (
@@ -67,7 +48,7 @@ function Login({ setCurrentUser }) {
         </section>
         <section className="login-form__actions">
           <button type="submit">Log In</button>
-          <button onClick={handleSignUp}>Sign Up</button>
+          <button onClick={() => navigate('/sign-up')}>Sign Up</button>
         </section>
       </form>
     </>
