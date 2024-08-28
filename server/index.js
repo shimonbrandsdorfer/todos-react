@@ -12,6 +12,8 @@ import rootRoute from "./routes/root.js";
 import usersRoute from "./routes/users.js";
 import authRoute from "./routes/auth.js";
 
+import path from 'path';
+
 const PORT = process.env.PORT;
 
 const app = express();
@@ -29,6 +31,12 @@ app.use("/tasks", tasksRoute);
 app.use("/users", usersRoute);
 app.use("/auth", authRoute);
 
+app.use("/app", express.static(path.join('..', 'client', 'dist')));
+
+app.get("/app", (req, res) => {
+  res.sendFile(path.join('..', 'client', 'dist', 'index.html'));
+});
+
 app.use(function (req, res, next) {
   console.log(`Incoming HTTP request from ${req.ip}`);
   next();
@@ -40,6 +48,8 @@ app.use((err, req, res, next) => {
   } else {
     res.status(500);
   }
+
+  console.error(err);
 
   res.send(`Err: ${err.message}`);
 });
