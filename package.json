@@ -7,6 +7,6 @@
   "scripts": {
     "start-be": "cd server && npm i && npm start",
     "start-fe" : "cd client && npm i && npm run dev",
-    "postinstall": "npm run start-be && npm run start-fe"
+    "postinstall": "npm run start-be"
   }
 }
